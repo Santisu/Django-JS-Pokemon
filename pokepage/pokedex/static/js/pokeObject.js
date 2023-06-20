@@ -6,6 +6,7 @@ export class Pokemon{
      * @param {string} region Pokemon region
      * @param {string[]} ability Pokemon abilities
      * @param {string} dex Pokemon pokedex description
+     * @param {string[]} type Pokemon Type
      * @param {string} image Pokemon picture
      */
 

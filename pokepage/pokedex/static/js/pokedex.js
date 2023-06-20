@@ -12,7 +12,6 @@ const pokeAbility = document.getElementById("poke-ability");
 const pokeDex = document.getElementById("poke-dex");
 const pokeSprite = document.getElementById("poke-sprite");
 const dexter = document.getElementById("dexter");
-const dexterInput = document.getElementById("dexter-input")
 
 pokeGen.addEventListener("change", function(){
   const selectedOption = this.options[this.selectedIndex];

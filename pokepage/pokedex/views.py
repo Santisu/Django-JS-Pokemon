@@ -47,12 +47,20 @@ class PokedexIndexView(View):
     }
 
     def get(self, request):
+        """
+        Data sent when receiving a GET request 
+        """
         context = {
             "generacion" : self.generacion,
         }
         return render(request, "pokedex_index.html", context)
     
     def post(self, request):
+        """
+        Handler of a POST request, depending on the value of "accion"
+        the request will be referred to another method
+
+        """
         data = json.loads(request.body)
         if data.get("accion") == "getGen":
             return self.get_gen(request)
@@ -60,6 +68,9 @@ class PokedexIndexView(View):
             return self.get_poke(request)
 
     def get_gen(self, request):
+        """
+        If the request POST is getGen, this logic will send a JSON with each pokemon name of that gen.
+        """
         data = json.loads(request.body)
         print(data.get('id'), data.get('accion'))
         gen_id = data.get('id')
@@ -76,8 +87,11 @@ class PokedexIndexView(View):
             return JsonResponse({'error': 'No se pudo obtener el Pokémon'})
    
     def get_poke(self, request):
+        """
+        If the request POST is getPoke, This logic will collect the data of the requested pokemon,
+        clean it and send only the necessary data to show on the information card.
+        """
         data = json.loads(request.body)
-        print(data.get('pokeName'), data.get('accion'))
         pokemon_name = data.get('pokeName')
         url = f'https://pokeapi.co/api/v2/pokemon-species/{pokemon_name}'
         url_specific = f'https://pokeapi.co/api/v2/pokemon/{pokemon_name}'

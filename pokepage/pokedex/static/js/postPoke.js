@@ -1,4 +1,7 @@
 export function capitalizeWord(word) {
+  /**
+   * If word is an array this function will split it and return each word capitalized
+   */
   const words = word.split(' ');
   const capitalizedWords = words.map((w) => w.charAt(0).toUpperCase() + w.slice(1));
   return capitalizedWords.join(' ');
