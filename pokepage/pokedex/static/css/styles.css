@@ -1,0 +1,73 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: rgba(255, 0, 0, 0.771);
+}
+
+.ingreso{
+    width: 100%;
+    margin-bottom: 5px;
+    margin-top: 3px;
+    padding: 5px;
+}
+
+.card-input {
+    background-color: rgb(163, 173, 255);
+    border: solid rgba(255, 255, 0, 0.292);
+    border-radius: 10px;
+    height: 25vh;
+    width: 80%;
+    box-shadow: 2px 2px 1px rgba(0,0,0,0.3);
+    padding: 10px;
+    margin: 5px 0;
+
+}
+
+.card-info {
+    background-color: rgb(163, 173, 255);
+    border: solid rgba(255, 255, 0, 0.363);
+    border-radius: 10px;
+    height: 75vh;
+    width: 80%;
+    box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.314);
+    padding: 10px;
+    margin: 5px 0;
+
+}
+
+.card-title{
+    color: #fff200;
+    font-size: 1.5rem;
+    text-align: center;
+    margin: 2px;
+}
+
+form {
+    margin: 5px 10px;
+    width: auto;
+
+}
+form footer {
+    margin-top: 5px;
+}
+.input-text{
+    border: 1px 3px rgba(0,0,0,0.3);
+    padding: 5px;
+    width: 95%;
+    box-shadow: 1px 1px 1px rgba(223, 7, 7, 0.3);
+    margin-bottom: 10px;
+}
+
+.input-btn{
+    font-weight: 600;
+    background-color: red;
+    color: white;
+    border-radius: 5px;
+    border: 1px 3px rgba(0,0,0,0.3);
+    padding: 5px;
+    width: 100%;
+    box-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+}

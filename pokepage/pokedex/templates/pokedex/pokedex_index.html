@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <title>Index</title>
+</head>
+<body> 
+     <div class="card-input">
+        <div class="card-body">
+            <h3 class="card-title">Ingresa un Pokemon</h3>
+            <div class="card-content">
+                <form action="" id="poke-form">
+                    <label for="generacion">Selecciona una region:</label>
+                    <select id="generacion" class="ingreso">
+                    {% for gen in generacion.values %}
+                    <option value="{{ gen.id }}">{{ gen.nombre }}</option>
+                    {% endfor %}
+                    </select>
+                    <br>
+                    <label for="poke-list">Selecciona o escribe un Pokémon:</label>
+                    <input type="text" id="poke-list" list="pokemon-list" class="ingreso">
+                    <datalist id="pokemon-list">
+                    </datalist>
+                    <footer>
+                    <input type="submit" class="input-btn" value="Enviar" name="send" id="enviar-poke">
+                    </footer>
+                </form>
+            </div>
+        </div>
+    </div> 
+    <div class="card-info">
+        <div class="card-body">
+            <h3 class="card-title">Nombre</h3>
+            <h4>N°</h4>
+            <h4>Tipo</h4>
+            <h4>Región</h4>
+            <h4>Habilidades</h4>
+            <h4>Pokedex original:</h4>
+            <img src="" alt="Imagen">
+            <div class="card-content">
+                
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    const backend = "{% url 'index' %}";
+    const CSRF_TOKEN = '{{ csrf_token }}';
+</script>
+<script src="{% static 'js/pokedex.js' %}" type="module" >
+</script>
+</html>
