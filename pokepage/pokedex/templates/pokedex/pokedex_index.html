@@ -6,10 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
-    <title>Index</title>
+    <title>Pokedex</title>
 </head>
-<body> 
-     <div class="card-input">
+<body>
+    <h1>Pokedex</h1>
+    <div class="card-input" id="dexter-input">
         <div class="card-body">
             <h3 class="card-title">Ingresa un Pokemon</h3>
             <div class="card-content">
@@ -32,20 +33,31 @@
             </div>
         </div>
     </div> 
-    <div class="card-info">
+    <div class="card-info" id="dexter">
         <div class="card-body">
-            <h3 class="card-title">Nombre</h3>
-            <h4>N°</h4>
-            <h4>Tipo</h4>
-            <h4>Región</h4>
-            <h4>Habilidades</h4>
-            <h4>Pokedex original:</h4>
-            <img src="" alt="Imagen">
+            <div class="card-title">
+            <h3 id="poke-name" class="pokemon-title">Nombre</h3>
+            <img src="" alt="" id="poke-sprite">
+            </div>
+            <ul>
+                <label for="">N°:</label>
+                <li id="poke-number" class="description"></li>
+                <label for="">Tipo:</label>
+                <li id="poke-type" class="description"></li>
+                <label for="">Región:</label>
+                <li id="poke-region" class="description"></li>
+                <label for="">Habilidades:</label>
+                <li id="poke-ability" class="description"></li>
+                <label for="">Pokedex original:</label>
+                <li id="poke-dex" class="description"></li>
+                
+            </ul>
             <div class="card-content">
                 
             </div>
         </div>
     </div>
+    <footer class="foot"><a href="https://www.linkedin.com/in/esteban-santibanez-bravo/" target="_blank">Esteban Santibáñez</a></footer>
 </body>
 <script>
     const backend = "{% url 'index' %}";

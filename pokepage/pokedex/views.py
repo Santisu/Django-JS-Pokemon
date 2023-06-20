@@ -80,19 +80,40 @@ class PokedexIndexView(View):
         print(data.get('pokeName'), data.get('accion'))
         pokemon_name = data.get('pokeName')
         url = f'https://pokeapi.co/api/v2/pokemon-species/{pokemon_name}'
+        url_specific = f'https://pokeapi.co/api/v2/pokemon/{pokemon_name}'
         respuesta = requests.get(url)
+        respuesta_specific = requests.get(url_specific)
         if respuesta.status_code == 200:
             json_dict = json.loads(respuesta.text)
+            json_dict_specific = json.loads(respuesta_specific.text)
+            poke_type =  []
+            poke_ability = []
+            for objeto in json_dict_specific["abilities"]  :
+                poke_ability.append(objeto["ability"]["name"])
+            for objeto in json_dict_specific["types"]  :
+                poke_type.append(objeto["type"]["name"])
             region = ""
             for gen in list(self.generacion.keys()):
                 if json_dict['generation']['name'] == gen:
                     region = self.generacion[gen]["nombre"]
+            dex = ""
+            for entry in json_dict:
+                if entry == "flavor_text_entries":
+                    for item in json_dict[entry]:
+                        if item["language"]["name"] == "es":
+                            dex = item["flavor_text"]
+                            break
+            dex = dex.replace('\n', ' ')
+            poke_sprite = json_dict_specific["sprites"]["front_default"]
             poke_dict = {
                 "name" : json_dict["name"],
                 "id" : json_dict["id"],
-                "region" : region
+                "region" : region,
+                "dex" : dex,
+                "type" : poke_type,
+                "ability" : poke_ability,
+                "sprite" : poke_sprite
             }
-           
             json_data = json.dumps(poke_dict)
             return JsonResponse(json_data, safe=False)
         else:

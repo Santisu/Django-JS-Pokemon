@@ -1,5 +1,17 @@
-function capitalizeWord(word) {
-    return word.charAt(0).toUpperCase() + word.slice(1);
+export function capitalizeWord(word) {
+  const words = word.split(' ');
+  const capitalizedWords = words.map((w) => w.charAt(0).toUpperCase() + w.slice(1));
+  return capitalizedWords.join(' ');
+  }
+
+
+export async function obtenerPokeDatos(poke) {
+    try {
+      const pokeDatos = await getPoke(poke);
+      return pokeDatos
+    } catch (error) {
+      console.error(error);
+    }
   }
 
 export async function getPoke(input){
@@ -17,13 +29,13 @@ export async function getPoke(input){
         },
         body: json
       });
-  
       if (!response.ok) {
         throw new Error('Error en la petición al backend');
       }
-  
       const resultado = await response.json();
-      console.log(resultado);
+      const objeto = JSON.parse(resultado);
+      const lista = Object.values(objeto);
+      return lista
   
     } catch (error) {
       console.error('Error:', error.message);

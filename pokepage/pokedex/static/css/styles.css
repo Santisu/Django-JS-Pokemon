@@ -1,10 +1,20 @@
 body {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    display: grid;
+    justify-items: center;
     height: 100vh;
     background-color: rgba(255, 0, 0, 0.771);
+}
+
+
+
+.description {
+    list-style: none;
+    font-size: 1.2rem;
+    color: rgb(215, 0, 0);
+    background-color: rgba(84, 86, 174, 0.188);
+    text-shadow: 0.5px 0.5px 0.5px rgba(0,0,0,0.4);
+    padding: 2px;
+    border-radius: 4px;
 }
 
 .ingreso{
@@ -14,15 +24,24 @@ body {
     padding: 5px;
 }
 
+h1 {
+    font-size: 3rem;
+    margin:5px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: yellow;
+    text-shadow: 2px 2px 18px rgba(0,0,0,0.9) ;
+    height: 10%
+}
+
 .card-input {
     background-color: rgb(163, 173, 255);
     border: solid rgba(255, 255, 0, 0.292);
     border-radius: 10px;
-    height: 25vh;
+    height: fit-content;
     width: 80%;
     box-shadow: 2px 2px 1px rgba(0,0,0,0.3);
     padding: 10px;
-    margin: 5px 0;
+    margin: 5px 5px;
 
 }
 
@@ -30,19 +49,28 @@ body {
     background-color: rgb(163, 173, 255);
     border: solid rgba(255, 255, 0, 0.363);
     border-radius: 10px;
-    height: 75vh;
+    height: fit-content;
     width: 80%;
     box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.314);
     padding: 10px;
-    margin: 5px 0;
+    margin: 5px 5px;
 
 }
 
 .card-title{
+    display: flex;
     color: #fff200;
     font-size: 1.5rem;
     text-align: center;
+    justify-content: center;
     margin: 2px;
+}
+
+.pokemon-title{
+    font-size: 2rem;
+    color: red;
+    text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.9);
+    text-align: center;
 }
 
 form {
@@ -70,4 +98,44 @@ form footer {
     padding: 5px;
     width: 100%;
     box-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+}
+
+label {
+    color: rgb(82, 82, 82);
+}
+ul {
+    padding: 0px;
+}
+
+#dexter{
+    display: none;
+}
+
+.input-btn {
+    transition: 0.3s;
+}
+.input-btn:hover{
+    cursor: pointer;
+}
+
+.foot {
+    width: 100%;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    align-self: flex-end;
+    background-color: rgba(106, 106, 106, 0.363);
+}
+
+a {
+    text-decoration: none;
+}
+@media only screen and (min-width: 995px) {
+    .card-input {
+        width: 30%;
+    }
+    .card-info{
+        width: 30%;
+    }
+
 }

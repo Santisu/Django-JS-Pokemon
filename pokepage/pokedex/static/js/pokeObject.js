@@ -9,14 +9,13 @@ export class Pokemon{
      * @param {string} image Pokemon picture
      */
 
-    constructor(name, number, region, ability, dex, image){
+    constructor(name, number, region, dex, type, ability, image){
         this.name = name;
         this.number = number;
         this.region = region;
         this.ability = ability;
         this.dex = dex;
+        this.type = type
         this.image = image;
     }
 }
-const newPoke = new Pokemon('sama', 29, 'alola', 'ser blanco','Sama es muy blanco el mas blanco', "FOTO DE SAMA")
-console.log(newPoke)
